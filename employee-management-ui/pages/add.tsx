@@ -25,7 +25,7 @@ const Add = (props) => {
                                        className="col-sm-2 col-form-label col-form-label-lg">First Name</label>
                                 <div className="col-sm-10">
                                     <input type="email" className="form-control form-control-lg" id="colFormLabelLg"
-                                           placeholder="col-form-label-lg" />
+                                           placeholder="Please enter your first name" />
                                 </div>
                             </div>
                             <div className="form-group row mt-2">
@@ -33,7 +33,7 @@ const Add = (props) => {
                                        className="col-sm-2 col-form-label col-form-label-lg">Last Name</label>
                                 <div className="col-sm-10">
                                     <input type="email" className="form-control form-control-lg" id="colFormLabelLg"
-                                           placeholder="col-form-label-lg" />
+                                           placeholder="Please enter your last name" />
                                 </div>
                             </div>
                             <div className="form-group row mt-2">
@@ -41,7 +41,7 @@ const Add = (props) => {
                                        className="col-sm-2 col-form-label col-form-label-lg">Email</label>
                                 <div className="col-sm-10">
                                     <input type="email" className="form-control form-control-lg" id="colFormLabelLg"
-                                           placeholder="col-form-label-lg" />
+                                           placeholder="Please enter your email" />
                                 </div>
                             </div>
                             <div className="form-group row mt-2">
@@ -49,7 +49,7 @@ const Add = (props) => {
                                        className="col-sm-2 col-form-label col-form-label-lg">Phone</label>
                                 <div className="col-sm-10">
                                     <input type="email" className="form-control form-control-lg" id="colFormLabelLg"
-                                           placeholder="col-form-label-lg" />
+                                           placeholder="Please enter your phone" />
                                 </div>
                             </div>
                             <div className="form-group row mt-2">
