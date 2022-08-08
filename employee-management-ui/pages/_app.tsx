@@ -3,6 +3,9 @@ import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
 import store, { Store } from '../store';
+import React from "react";
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 interface AppContext extends NextPageContext {
   store: Store;
