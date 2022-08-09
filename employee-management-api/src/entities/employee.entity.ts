@@ -15,6 +15,8 @@ export class Employee {
     phone: string
     @Prop()
     gender: string // M: Male, F: Female
+    @Prop()
+    photo: string
 }
 
 export const EmployeeSchema = SchemaFactory.createForClass(Employee)
