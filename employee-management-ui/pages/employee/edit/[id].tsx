@@ -2,10 +2,11 @@ import React from 'react';
 import { compose } from 'recompose';
 import { useRouter } from 'next/router'
 
-import Navbar from "../components/navbar";
+import Navbar from "../../../components/navbar";
 
 const Add = (props) => {
     const router = useRouter()
+
     return (
         <React.Fragment>
             <Navbar/>
@@ -63,7 +64,7 @@ const Add = (props) => {
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-light float-lg-end mt-2 border-1" style={{width: '10rem', borderColor: '#7f29d6'}}>ADD</button>
+                            <button type="submit" className="btn btn-light float-lg-end mt-2 border-1" style={{width: '10rem', borderColor: '#7f29d6'}}>SAVE</button>
                         </form>
                     </div>
                 </div>

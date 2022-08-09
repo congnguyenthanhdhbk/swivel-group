@@ -116,7 +116,7 @@ const employees = [
         "photo": "https://randomuser.me/api/portraits/men/36.jpg"
     }
 ]
-const Todo= (props) => {
+const Home= (props) => {
   const {
     item,
     data,
@@ -133,7 +133,7 @@ const Todo= (props) => {
             <div className="row mt-3 mb-3">
                 <div className="col-sm-9"></div>
                 <div className="col-sm-3">
-                    <button className="rounded-pill" style={{backgroundColor: '#7f29d6', color: 'white'}} onClick={() => router.push('/add')}>ADD EMPLOYEE</button>
+                    <button className="rounded-pill" style={{backgroundColor: '#7f29d6', color: 'white'}} onClick={() => router.push('/employee/add')}>ADD EMPLOYEE</button>
                     <button className="ms-1">add employee</button>
                 </div>
             </div>
@@ -153,7 +153,7 @@ const Todo= (props) => {
                                     <button className="rounded-circle ml-1 bg-danger border-0" style={{color: 'white'}}>
                                         <FontAwesomeIcon icon={faTrash}/>
                                     </button>
-                                    <button className="rounded-circle ml-1 bg-success ms-1 border-0" style={{color: 'white'}} onClick={() => router.push('/edit')}>
+                                    <button className="rounded-circle ml-1 bg-success ms-1 border-0" style={{color: 'white'}} onClick={() => router.push('/employee/edit/1')}>
                                         <FontAwesomeIcon icon={faEdit}/>
                                     </button>
                                 </div>
@@ -186,7 +186,7 @@ const Todo= (props) => {
                         <td>{employee.number}</td>
                         <td>{employee.gender === 'F' ? 'Female' : 'Male'}</td>
                         <td>
-                            <FontAwesomeIcon icon={faEdit} onClick={() => router.push('/edit')}/>
+                            <FontAwesomeIcon icon={faEdit} onClick={() => router.push('/employee/edit/1')}/>
                             <FontAwesomeIcon icon={faTrash} className="ms-1"/>
                         </td>
                     </tr>
@@ -231,4 +231,4 @@ const Todo= (props) => {
   );
 };
 
-export default compose()(Todo);
+export default compose()(Home);
