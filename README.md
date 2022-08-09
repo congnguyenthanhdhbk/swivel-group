@@ -3,6 +3,7 @@
 1. NestJs framework
 2. Typescript
 3. MongoDB
+4. Node 16
 ## Project structure
 ```
 employee-management-api
@@ -299,4 +300,23 @@ curl --location --request DELETE 'http://localhost:8080/api/v1/employees/:id'
 1. Typescript
 2. Redux
 3. Bootstrap
-The challenge for assignment
+## How to run project
+### STEP 1: clone source code
+```
+git clone git@github.com:congnguyenthanhdhbk/swivel-group.git
+```
+### STEP 2: Install and start backend
+```
+~ cd employee-managemet-api
+~ npm install
+~ npm run dev
+**Notes**: Installed node 16 and npm 6
+```
+### STEP 3: Install and start fe
+```
+~ cd employee-managemet-ui
+~ yarn install
+~ yarn dev
+- Open web brower and access to http://localhost:3001
+**Notes**: Installed node 16 and npm 6
+```
