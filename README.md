@@ -300,6 +300,218 @@ curl --location --request DELETE 'http://localhost:8080/api/v1/employees/:id'
 1. Typescript
 2. Redux
 3. Bootstrap
+
+## Manual testing
+### Backend validation
+#### **Case 1**: First name is not alpha
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "Henri",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "firstName must contain only letters (a-zA-Z)"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 2**: First name less than 6 characters
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "Henri",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "firstName must be longer than or equal to 6 characters"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 3**: First name greater than 10 characters
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "Henriaaaaaaaaaaaaaaaaa",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "firstName must be shorter than or equal to 10 characters"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 4**: Last name greater than 10 characters
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "DrHenri",
+    "lastName": "Rodriguezzz",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "lastName must be shorter than or equal to 10 characters"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 5**: Last name less than 6 characters
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "DrHenri",
+    "lastName": "Rodri",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "lastName must be longer than or equal to 6 characters"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 6**: Wrong email format
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "DrHenri",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippingmail.com",
+    "phone": "+94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "email must be an email"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 7**: Wrong phone format
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "DrHenri",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "94771277218",
+    "gender": "F"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "phone must be a valid phone number"
+    ],
+    "error": "Bad Request"
+}
+```
+
+#### **Case 8**: Wrong Gender
+##### **Request**
+```
+curl --location --request POST 'http://localhost:8080/api/v1/employees' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstName": "DrHenri",
+    "lastName": "Rodriguez",
+    "email": "Darrin_Rippin@gmail.com",
+    "phone": "+94771277218",
+    "gender": "K"
+}'
+```
+##### **Responnse**
+```
+{
+    "statusCode": 400,
+    "message": [
+        "gender must be a valid enum value"
+    ],
+    "error": "Bad Request"
+}
+```
+
+### Frontend validation
+#### **Case 1** Grid view
+
+![](images/grid.png)
+
+#### **Case 2** list view
+![](images/list.png)
+
+#### **Case 3** Required field
+![](images/required.png)
+
+#### **Case 3** Required field
+![](images/required.png)
+
+#### **Case 3** Required field
+![](images/validate.png)
+
 ## How to run project
 ### STEP 1: clone source code
 ```
@@ -320,3 +532,9 @@ git clone git@github.com:congnguyenthanhdhbk/swivel-group.git
 - Open web brower and access to http://localhost:3001
 **Notes**: Installed node 16 and npm 6
 ```
+### STEP 4: Access to /scripts and run employee.json script in mongo tools to init data
+
+# What's next
+1. Deploy project on AWS or server suggestion to use docker or kubernetes
+2. Support upload avatar in add form
+3. Replaced unit test for manual test

@@ -1,4 +1,5 @@
-import {IsAlpha, IsEmail, IsPhoneNumber, IsString, MaxLength, MinLength} from "class-validator";
+import {IsAlpha, IsEmail, IsEnum, IsPhoneNumber, IsString, MaxLength, MinLength} from "class-validator";
+import {EmployeeConstant} from "../constants/employee.constant";
 
 export class CreateEmployeeDto {
     @IsAlpha()
@@ -14,5 +15,6 @@ export class CreateEmployeeDto {
     @IsPhoneNumber()
     phone: string
     @IsString()
+    @IsEnum(EmployeeConstant)
     gender: string
 }
